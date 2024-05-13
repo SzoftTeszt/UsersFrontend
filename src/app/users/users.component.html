@@ -1,0 +1,32 @@
+<h1>Users</h1>
+
+<div class="row">
+    <div class="col">Név</div>
+    <div class="col">Email</div>
+    <div class="col">Műveletek</div>
+</div>
+
+<div  class="row">
+    <div class="col">
+        <input [(ngModel)]="newUser.name" type="text" class="form-control">
+    </div>
+    <div class="col">
+        <input [(ngModel)]="newUser.email" type="text" class="form-control">
+    </div>
+    <div class="col">
+        <button (click)="addUser()" type="button" class="btn btn-primary">Add</button>       
+    </div>
+</div>
+
+<div *ngFor="let user of users" class="row">
+    <div class="col">
+        <input [id]="'name'+user.email" [(ngModel)]="user.name" type="text" class="form-control">
+    </div>
+    <div class="col">
+        <input [id]="'email'+user.email" [(ngModel)]="user.email" type="text" class="form-control">
+    </div>
+    <div class="col">
+        <button (click)="updateUser(user)" type="button" class="btn btn-primary">Update</button>
+        <button (click)="deleteUser(user)" type="button" class="btn btn-primary">Delete</button>
+    </div>
+</div>
